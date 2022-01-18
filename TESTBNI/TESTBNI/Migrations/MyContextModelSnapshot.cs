@@ -130,7 +130,7 @@ namespace TESTBNI.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("UserRoles");
+                    b.ToTable("tb_m_userrole");
                 });
 
             modelBuilder.Entity("TESTBNI.Models.UserRole", b =>
