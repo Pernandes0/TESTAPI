@@ -35,7 +35,6 @@ namespace TESTBNI.Repositories
             parameters.Add("@Harga", barang.Harga);
             var create = connection.Execute(prosedureName, parameters, commandType: CommandType.StoredProcedure);
             return create;
-
         }
 
         public int Delete(int id)

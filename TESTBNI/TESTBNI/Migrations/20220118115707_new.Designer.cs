@@ -10,7 +10,7 @@ using TESTBNI.Context;
 namespace TESTBNI.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20220118035716_new")]
+    [Migration("20220118115707_new")]
     partial class @new
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,7 +132,7 @@ namespace TESTBNI.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("UserRoles");
+                    b.ToTable("tb_m_userrole");
                 });
 
             modelBuilder.Entity("TESTBNI.Models.UserRole", b =>
