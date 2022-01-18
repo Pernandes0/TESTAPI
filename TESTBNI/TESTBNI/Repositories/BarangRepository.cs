@@ -17,6 +17,7 @@ namespace TESTBNI.Repositories
         private readonly MyContext context;
         private readonly IConfiguration configuration;
         private readonly SqlConnection connection;
+
         DynamicParameters parameters = new DynamicParameters();
 
         public BarangRepository(MyContext mycontext, IConfiguration myconfiguration)
@@ -43,7 +44,7 @@ namespace TESTBNI.Repositories
             var delete = connection.Execute(prosedureDelete, new { id }, commandType: CommandType.StoredProcedure);
             return delete;
         }
-
+        // render dara asingcronus == 
         public async Task<IEnumerable<Barang>> Get()
         {
             var prosedureGetall = "SP_Get_Barang";
