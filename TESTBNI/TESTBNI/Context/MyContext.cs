@@ -27,7 +27,7 @@ namespace TESTBNI.Context
                 .WithMany(ur => ur.UserRoles)
                 .HasForeignKey(ri => ri.RoleId);
 
-            // ini untuk apa ya
+    
             base.OnModelCreating(modelBuilder);
         }
     }
