@@ -1,0 +1,160 @@
+﻿<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1></h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Barang</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Custom tabs (Charts with tabs)-->
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex flex-row align-content-between justify-content-between">
+                <h3 class="card-title">
+                    <i class="fas fa-chart-pie mr-1"></i>
+                    Barang
+                </h3>
+                <div data-toggle="modal" data-target="#myModal" onclick="ClearScreen();">
+                    @*<button class="btn btn-outline-success btn-circle" data-toggle="tooltip" data-placement="top" data-animation="false" title="Add Barang">
+                            <i class="fa fa-plus"></i>
+                        </button>*@
+                </div>
+            </div>
+
+            @*<div class="card-header">
+                    <a asp-action="ReportDivision" class="btn btn-outline-danger" data-toggle="tooltip" title="Export Pdf"><i class="fa fa-file-pdf"></i></a>
+                    <a asp-action="ReportExcel" class="btn btn-outline-success" data-toggle="tooltip" title="Export Excel"><i class="fa fa-file-excel"></i></a>
+                </div>*@
+
+        </div><!-- /.card-header -->
+        <div class="card-body">
+            <div class="tab-content p-0">
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Management Barang</h3>
+                                </div>
+                                <!-- Modal Save -->
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <form id="form-division" role="form">
+                                                    <input id="id" name="id" type="hidden" />
+
+                                                    <div class="form-group">
+                                                        <label>Name : </label>
+                                                        <input class="form-control" id="name" name="name"
+                                                               placeholder="Name..." required type="text">
+                                                        <small id="NameHelpBlock" class="form-text text-muted">
+                                                            *)Field Must be Filled !
+                                                        </small>
+                                                        <p></p>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Description : </label>
+                                                        <input class="form-control" id="deskripsi" name="description"
+                                                               placeholder="Description..." required type="text">
+                                                        <small id="DescHelpBlock" class="form-text text-muted">
+                                                            *)Field Must be Filled !
+                                                        </small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Quantity : </label>
+                                                        <input class="form-control" id="quantity" name="quantity"
+                                                               placeholder="Quantity..." required type="text">
+                                                        <small id="QuantityHelpBlock" class="form-text text-muted">
+                                                            *)Field Must be Filled !
+                                                        </small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Price : </label>
+                                                        <input class="form-control" id="harga" name="harga"
+                                                               placeholder="Price..." required type="text">
+                                                        <small id="PericeHelpBlock" class="form-text text-muted">
+                                                            *)Field Must be Filled !
+                                                        </small>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" id="add" class="btn btn-outline-success" data-dismiss="modal" onclick="Save();">Insert</button>
+                                                <button type="button" id="update" class="btn btn-outline-warning" data-dismiss="modal" onclick="Update();">Update</button>
+                                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Modal Post-->
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="barang" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Name</th>
+                                                    <th>Deskripsi</th>
+                                                    <th>Quantity</th>
+                                                    <th>Harga</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                                @*<div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="barangcus" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Name</th>
+                                                    <th>Deskripsi</th>
+                                                    <th>Quantity</th>
+                                                    <th>Harga</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>*@
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+
+            </div>
+        </div><!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+<!-- /.content-wrapper -->
+@section Scripts{
+    <script src="~/js/Barang/BarangJS.js"></script>
+}
