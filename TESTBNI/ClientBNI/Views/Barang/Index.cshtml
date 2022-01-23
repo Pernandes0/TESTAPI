@@ -1,4 +1,16 @@
-﻿<!-- Content Wrapper. Contains page content -->
+﻿@{ 
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+@using Microsoft.AspNetCore.Http
+@{ var roleName = Context.Session.GetString("lvl");
+                if (roleName == null)
+                {
+                    Context.Response.Redirect("/login");
+                } }
+
+
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -108,6 +120,8 @@
                                 </div>
                                 <!--End Modal Post-->
                                 <!-- /.card-header -->
+                                @if (roleName == "Admin")
+                                {
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="barang" width="100%" cellspacing="0">
@@ -123,22 +137,24 @@
                                             </thead>
                                         </table>
                                     </div>
-                                </div>
-                                @*<div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" id="barangcus" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Name</th>
-                                                    <th>Deskripsi</th>
-                                                    <th>Quantity</th>
-                                                    <th>Harga</th>
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                    </div>
-                                </div>*@
+                                </div>}
+                                @if (roleName == "Customer")
+                                {
+                                <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="barangcus" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Name</th>
+                                                        <th>Deskripsi</th>
+                                                        <th>Quantity</th>
+                                                        <th>Harga</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>}
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->

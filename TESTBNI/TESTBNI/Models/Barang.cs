@@ -14,11 +14,11 @@ namespace TESTBNI.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required]
+
         public string Quantity { get; set; }
-        [Required]
+
         public string Deskripsi { get; set; }
-        [Required]
+
         public string Harga { get; set; }
     }
 }

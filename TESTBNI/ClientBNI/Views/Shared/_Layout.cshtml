@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@{ var ID = Context.Session.GetString("id");
+                var name = Context.Session.GetString("uname");
+                var roleName = Context.Session.GetString("lvl");
+                var email = Context.Session.GetString("email");
+                if (roleName == null)
+                {
+                    Context.Response.Redirect("/");
+                } }
+<!DOCTYPE html>
 <html>
 @**@
 <head>
@@ -58,7 +67,7 @@
                 <li class="nav-item dropdown user-menu">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                         <img src="~/assets/dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
-                        <span class="d-none d-md-inline">name</span>
+                        <span class="d-none d-md-inline">@name</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <!-- User image -->
@@ -66,8 +75,8 @@
                             <img src="~/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
 
                             <p>
-                                name - roleName
-                                <small>email</small>
+                                @name - @roleName
+                                <small>@email</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
@@ -101,7 +110,7 @@
                         <img src="~/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="/dashboard" class="d-block">name</a>
+                        <a href="/dashboard" class="d-block">@name</a>
                     </div>
                 </div>
 
@@ -127,14 +136,15 @@
                                         </p>
                                     </a>
 
-                                    @*if (roleName == "Admin")*@
-                                    
-                        <a href="/Barang/AddBarang" class="nav-link">
-                            <i class="nav-icon fa fa-edit"></i>
-                            <p>
-                                Add
-                            </p>
-                        </a>
+                                    @if (roleName == "Admin")
+                                    {
+                                    <a href="/Barang/AddBarang" class="nav-link">
+                                        <i class="nav-icon fa fa-edit"></i>
+                                        <p>
+                                            Add
+                                        </p>
+                                    </a>
+                                    }
                                 </li>
                             </ul>
                         </li>

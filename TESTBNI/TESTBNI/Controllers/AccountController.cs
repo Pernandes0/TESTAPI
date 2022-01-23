@@ -62,7 +62,7 @@ namespace TESTBNI.Controllers
             var role = new UserRole
             {
                 UserId = user.Id,
-                RoleId = "2"
+                RoleId = "1"
             };
             _context.UserRoles.AddAsync(role);
             _context.SaveChanges();

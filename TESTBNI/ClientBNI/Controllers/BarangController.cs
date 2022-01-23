@@ -34,8 +34,8 @@ namespace ClientBNI.Controllers
                 var byteContent = new ByteArrayContent(buffer);
                 byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                // var token = HttpContext.Session.GetString("JWToken");
-                // http.DefaultRequestHeaders.Add("Authorization", token);
+                var token = HttpContext.Session.GetString("JWToken");
+                http.DefaultRequestHeaders.Add("Authorization", token);
 
                 if (barang.Id == 0)
                 {
@@ -58,8 +58,8 @@ namespace ClientBNI.Controllers
         public JsonResult LoadBarang()
         {
             IEnumerable<Barang> barang = null;
-            // var token = HttpContext.Session.GetString("JWToken");
-            //http.DefaultRequestHeaders.Add("Authorization", token);
+            var token = HttpContext.Session.GetString("JWToken");
+            http.DefaultRequestHeaders.Add("Authorization", token);
             var restTask = http.GetAsync("barangs/get");
             restTask.Wait();
 
@@ -76,8 +76,8 @@ namespace ClientBNI.Controllers
         public JsonResult GetById(int id)
         {
             Barang barang = null;
-            // var token = HttpContext.Session.GetString("JWToken");
-            // http.DefaultRequestHeaders.Add("Authorization", token);
+            var token = HttpContext.Session.GetString("JWToken");
+            http.DefaultRequestHeaders.Add("Authorization", token);
             var restTask = http.GetAsync("barangs/" + id);
             restTask.Wait();
 
@@ -91,8 +91,8 @@ namespace ClientBNI.Controllers
         }
         public JsonResult Delete(int id)
         {
-            //var token = HttpContext.Session.GetString("JWToken");
-            //http.DefaultRequestHeaders.Add("Authorization", token);
+            var token = HttpContext.Session.GetString("JWToken");
+            http.DefaultRequestHeaders.Add("Authorization", token);
             var result = http.DeleteAsync("barangs/" + id).Result;
             return Json(result);
         }

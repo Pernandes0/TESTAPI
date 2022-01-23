@@ -1,0 +1,30 @@
+﻿
+@{ 
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Login.cshtml"; 
+}
+
+@*<form id="formLogin" role="form">*@
+<img class="mb-4" src="~/assets/img/bootstrap-logo.svg" alt="" width="72" height="57">
+<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+<label for="Email" class="visually-hidden">Email address</label>
+<input type="email" id="Email" class="form-control" placeholder="Email address">
+<label for="Password" class="visually-hidden">Password</label>
+<input type="password" id="Password" class="form-control" placeholder="Password">
+<div class="checkbox mb-3">
+    <label>
+        <input type="checkbox" onclick="myFunction()"> Show Password
+    </label>
+</div>
+<button class="w-100 btn btn-lg btn-primary" type="submit" id="login" onclick="myLogin()">Sign In</button>
+<p class="align-content-center">
+    <a href="/register" class="text-center"> Don't have an account? Register here.</a>
+</p>
+<p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
+@*</form>*@
+
+
+@section scriptLogin{
+    <script src="~/js/account.js"></script>
+}
+
