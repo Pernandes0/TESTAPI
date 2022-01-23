@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Request Reimbursement Parking</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/assets/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="~/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/assets/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Interview MII</h1>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <!-- SELECT2 EXAMPLE -->
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h3 class="card-title">Create New Barang</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Name : </label>
+                                        <input class="form-control" id="name" name="name"
+                                               placeholder="Name..." required type="text">
+                                        <small id="NameHelpBlock" class="form-text text-muted">
+                                            *)Field Must be Filled !
+                                        </small>
+                                        <p></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description : </label>
+                                        <input class="form-control" id="deskripsi" name="description"
+                                               placeholder="Description..." required type="text">
+                                        <small id="DescHelpBlock" class="form-text text-muted">
+                                            *)Field Must be Filled !
+                                        </small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quantity : </label>
+                                        <input class="form-control" id="quantity" name="quantity"
+                                               placeholder="Quantity..." required type="text">
+                                        <small id="QuantityHelpBlock" class="form-text text-muted">
+                                            *)Field Must be Filled !
+                                        </small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Price : </label>
+                                        <input class="form-control" id="harga" name="harga"
+                                               placeholder="Price..." required type="text">
+                                        <small id="PericeHelpBlock" class="form-text text-muted">
+                                            *)Field Must be Filled !
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <div class="card-footer">
+                            <button onclick="return Save()" type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col (right) -->
+            </section>
+            <!-- /.content -->
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts{
+
+    <script src="~/js/Barang/BarangJS.js"></script>
+}

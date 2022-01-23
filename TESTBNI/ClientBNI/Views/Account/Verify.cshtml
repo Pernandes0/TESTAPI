@@ -1,0 +1,36 @@
+﻿
+@{ 
+    ViewData["Title"] = "Verify";
+    Layout = "~/Views/Shared/_Login.cshtml"; 
+}
+
+<img class="mb-4" src="~/assets/img/bootstrap-logo.svg" alt="" width="72" height="57">
+<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+<label for="Email" class="visually-hidden">Email Verification</label>
+<input type="email" id="Email" class="form-control" placeholder="Email Verification">
+<label for="verifyId" class="visually-hidden">Verification Code</label>
+<input type="password" id="verifyId" class="form-control" placeholder="Verification Code">
+<div class="checkbox mb-3">
+    <label>
+        <input type="checkbox" onclick="showVerifyCode()"> Show Code
+    </label>
+</div>
+<button class="w-100 btn btn-lg btn-primary" type="submit" id="verify" onclick="Verify()">Sign In</button>
+
+<p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+
+
+
+@section scriptLogin{
+    <script src="~/js/account.js"></script>
+    <script>function showVerifyCode() {
+            var x = document.getElementById("verifyId");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }</script>
+}
+
+
