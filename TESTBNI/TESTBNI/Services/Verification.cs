@@ -26,9 +26,8 @@ namespace TESTBNI.Services
     {
         public void SendEmail(string sendEmail, string theCode)
         {
-            // using net mail
             MailMessage mail = new MailMessage();
-            SmtpClient StmpServer = new SmtpClient("smtp.gmail.com");
+            SmtpClient StmpServer = new SmtpClient();
             mail.To.Add(new MailAddress(sendEmail));
             mail.From = new MailAddress("mambablack0905@gmail.com", "TEST BNI");
             mail.Subject = "VERIFICATION CODE" + DateTime.Now.ToString();
@@ -37,10 +36,12 @@ namespace TESTBNI.Services
 
             StmpServer.UseDefaultCredentials = false;
             StmpServer.Port = 587;
-
-            // using system.net
+            StmpServer.Host = "smtp.gmail.com";
             StmpServer.Credentials = new NetworkCredential("mambablack0905@gmail.com", "082111432461");
             StmpServer.EnableSsl = true;
+            // SmtpServer.UseDefaultCredentials = false;
+            //StmpServer.UseDefaultCredentials = false;
+           // StmpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
             StmpServer.Send(mail);
         }
     }

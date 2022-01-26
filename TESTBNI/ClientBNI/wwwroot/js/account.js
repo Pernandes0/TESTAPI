@@ -28,7 +28,7 @@ function myLogin() {
     })
 };
 function Register() {
-    // debugger;
+    debugger;
     var confirm = $("#confirmPassword").val();
     var pw = $("#password").val();
     if (confirm == pw) {
