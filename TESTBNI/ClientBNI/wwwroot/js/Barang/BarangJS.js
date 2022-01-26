@@ -1,39 +1,39 @@
 ﻿var table = null;
 var tablecustomer = null;
-//$(document).ready(function () {
-//    debugger;
-//    tablecustomer = $("#barangcus").DataTable({
-//        "processing": true,
-//        "responsive": true,
-//        "pagination": true,
-//        "stateSave": true,
-//        "ajax": {
-//            url: "/Barang/LoadBarang",
-//            type: "GET",
-//            dataType: "json",
-//            dataSrc: "",
-//        },
-//        "columns": [
-//            {
-//                "data": "id",
-//                render: function (data, type, row, meta) {
-//                    return meta.row + meta.settings._iDisplayStart + 1;
-//                    //return meta.row + 1;
-//                }
-//            },
-//            { "data": "name" },
-//            {
-//                "data": "deskripsi"
-//            },
-//            {
-//                "data": "quantity"
-//            },
-//            {
-//                "data": "harga"
-//            },
-//        ],
-//    })
-//});
+$(document).ready(function () {
+    debugger;
+    tablecustomer = $("#barangadd").DataTable({
+        "processing": true,
+        "responsive": true,
+        "pagination": true,
+        "stateSave": true,
+        "ajax": {
+            url: "/Barang/LoadBarang",
+            type: "GET",
+            dataType: "json",
+            dataSrc: "",
+        },
+        "columns": [
+            {
+                "data": "id",
+                render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                    //return meta.row + 1;
+                }
+            },
+            { "data": "name" },
+            {
+                "data": "deskripsi"
+            },
+            {
+                "data": "quantity"
+            },
+            {
+                "data": "harga"
+            },
+        ],
+    })
+});
 
 $(document).ready(function () {
     debugger;
